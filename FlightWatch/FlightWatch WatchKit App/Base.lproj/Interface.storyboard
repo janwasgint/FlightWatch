@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13529" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13507"/>
+    </dependencies>
+    <scenes>
+        <!--Airport Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="AirportInterfaceController" customModule="FlightWatch_WatchKit_Extension">
+                    <items>
+                        <table alignment="left" verticalAlignment="center" id="jzT-Y5-ecC">
+                            <items>
+                                <tableRow identifier="AirportNameRow" id="kOn-bj-YOJ" customClass="AirportNameRow" customModule="FlightWatch_WatchKit_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="2eu-ME-UrY">
+                                        <items>
+                                            <label alignment="center" verticalAlignment="center" text="Airport Name" id="zv6-os-U53"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="airportNameLabel" destination="zv6-os-U53" id="S70-1O-RyC"/>
+                                        <segue destination="wu2-ha-ICl" kind="push" identifier="TypeSelection" id="hlo-vY-uiJ"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="airportTable" destination="jzT-Y5-ecC" id="s1G-5s-Vpd"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="345"/>
+        </scene>
+        <!--Type Interface Controller-->
+        <scene sceneID="yxq-lf-gTY">
+            <objects>
+                <controller id="wu2-ha-ICl" customClass="TypeInterfaceController" customModule="FlightWatch_WatchKit_Extension">
+                    <items>
+                        <table alignment="left" verticalAlignment="center" id="kbY-OZ-OaK">
+                            <items>
+                                <tableRow identifier="TypeRow" id="ZHU-X3-pwA" customClass="TypeRow" customModule="FlightWatch_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="45" alignment="left" id="4N9-LK-Mjh">
+                                        <items>
+                                            <imageView width="40" height="40" alignment="left" verticalAlignment="center" contentMode="scaleAspectFit" id="Qvb-fo-NCe"/>
+                                            <label alignment="right" verticalAlignment="center" text="Arr/Dep" id="fzJ-78-JqH"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="ADImage" destination="Qvb-fo-NCe" id="vIi-8J-fS1"/>
+                                        <outlet property="ADLabel" destination="fzJ-78-JqH" id="8cS-uw-WqB"/>
+                                        <segue destination="0FV-uI-RiU" kind="push" identifier="FlightsSelection" id="zne-Si-pDr"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="ADTable" destination="kbY-OZ-OaK" id="pux-dk-d4L"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="468" y="345"/>
+        </scene>
+        <!--Flights Interface Controller-->
+        <scene sceneID="EBy-1J-7b5">
+            <objects>
+                <controller id="0FV-uI-RiU" customClass="FlightsInterfaceController" customModule="FlightWatch_WatchKit_Extension">
+                    <items>
+                        <table alignment="left" id="baB-8p-fPe">
+                            <items>
+                                <tableRow identifier="FlightRow" id="BPL-cP-2eh" customClass="FlightRow" customModule="FlightWatch_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="t03-uj-euJ">
+                                        <items>
+                                            <label alignment="left" text="City" id="wLj-un-uaa"/>
+                                            <group width="1" alignment="left" id="2Y5-fV-0rg">
+                                                <items>
+                                                    <label alignment="left" text="Time" id="PE4-xW-TU5">
+                                                        <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                        <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                                    </label>
+                                                    <label alignment="right" text="FlightCode" id="02A-CW-hDe">
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                                    </label>
+                                                </items>
+                                            </group>
+                                        </items>
+                                        <connections>
+                                            <segue destination="ory-bc-hfH" kind="push" identifier="FlightDetails" id="3aR-tr-yHz"/>
+                                        </connections>
+                                    </group>
+                                    <connections>
+                                        <outlet property="cityLabel" destination="wLj-un-uaa" id="iZk-KT-ftd"/>
+                                        <outlet property="flightCodeLabel" destination="02A-CW-hDe" id="FHF-GJ-xPy"/>
+                                        <outlet property="timeLabel" destination="PE4-xW-TU5" id="6Db-ym-BSt"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="flightsTable" destination="baB-8p-fPe" id="dRR-u5-ZsW"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="721" y="345"/>
+        </scene>
+        <!--Details Interface Controller-->
+        <scene sceneID="TIN-4T-5fD">
+            <objects>
+                <controller id="ory-bc-hfH" customClass="DetailsInterfaceController" customModule="FlightWatch_WatchKit_Extension">
+                    <items>
+                        <table alignment="left" id="KKx-Ab-rHn">
+                            <items>
+                                <tableRow identifier="DetailsRow" selectable="NO" id="H2k-2b-3hY" customClass="DetailsRow" customModule="FlightWatch_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" id="YA4-Im-lUw">
+                                        <items>
+                                            <label alignment="left" verticalAlignment="bottom" text="Info:" id="p13-Gn-riW">
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                            </label>
+                                            <label alignment="right" text="Data" id="USc-dy-0Ba"/>
+                                        </items>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="dataLabel" destination="USc-dy-0Ba" id="AEs-j4-IQ5"/>
+                                        <outlet property="infoLabel" destination="p13-Gn-riW" id="fnI-XW-T8u"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                        <button width="1" alignment="left" title="Airplane" id="CfD-ta-j79">
+                            <connections>
+                                <segue destination="hqb-b3-gyC" kind="push" identifier="AirplaneDetails" id="98F-mE-ApR"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="detailsTable" destination="KKx-Ab-rHn" id="aNE-xx-0hH"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="1012" y="345"/>
+        </scene>
+        <!--Airplane Interface Controller-->
+        <scene sceneID="BwV-RK-DT4">
+            <objects>
+                <controller id="hqb-b3-gyC" customClass="AirplaneInterfaceController" customModule="FlightWatch_WatchKit_Extension">
+                    <items>
+                        <imageView alignment="left" id="EOm-jG-Toh"/>
+                        <label alignment="center" text="Label" numberOfLines="0" id="HJ5-ua-5da"/>
+                    </items>
+                    <connections>
+                        <outlet property="airplaneImage" destination="EOm-jG-Toh" id="5lN-fH-yE1"/>
+                        <outlet property="airplaneName" destination="HJ5-ua-5da" id="MOq-s3-TRj"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="1296" y="345"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="FlightWatch_WatchKit_App" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+    </scenes>
+</document>
